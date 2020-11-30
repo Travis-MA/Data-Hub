@@ -1,0 +1,3 @@
+Record=TopLevelDocument|FileName=TopLevel.SchDoc
+Record=SheetSymbol|SourceDocument=TopLevel.SchDoc|Designator=U_MCU|SchDesignator=U_MCU|FileName=MCU.SchDoc|SymbolType=Normal|RawFileName=MCU.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=TopLevel.SchDoc|Designator=U_NBModule|SchDesignator=U_NBModule|FileName=NBModule.SchDoc|SymbolType=Normal|RawFileName=NBModule.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
