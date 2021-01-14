@@ -1,0 +1,30 @@
+Added Component: Designator=ADC1(MSOP-16_L4.0-W3.0-P0.50-LS4.9-BL)
+Add component. Clean all parameters for all variants
+Added Component: Designator=UREF2V5(US-8_L2.4-W2.1-P0.50-LS3.2-BR)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=NetADC1_1 Pin=ADC1-1
+Added Pin To Net: NetName=D2V5 Pin=ADC1-2
+Added Pin To Net: NetName=GND Pin=ADC1-3
+Added Pin To Net: NetName=VINP Pin=ADC1-4
+Added Pin To Net: NetName=VINN Pin=ADC1-5
+Added Pin To Net: NetName=GND Pin=ADC1-6
+Added Pin To Net: NetName=VREF2V5 Pin=ADC1-7
+Added Pin To Net: NetName=VREF/DGC Pin=ADC1-8
+Added Pin To Net: NetName=CNV Pin=ADC1-9
+Added Pin To Net: NetName=GND Pin=ADC1-10
+Added Pin To Net: NetName=NSS Pin=ADC1-11
+Added Pin To Net: NetName=MOSI Pin=ADC1-12
+Added Pin To Net: NetName=SCK Pin=ADC1-13
+Added Pin To Net: NetName=NetADC1_14 Pin=ADC1-14
+Added Pin To Net: NetName=D3V3 Pin=ADC1-15
+Added Pin To Net: NetName=GND Pin=ADC1-16
+Added Pin To Net: NetName=D5V0 Pin=UREF2V5-1
+Added Pin To Net: NetName=D5V0 Pin=UREF2V5-2
+Added Pin To Net: NetName=GND Pin=UREF2V5-3
+Added Pin To Net: NetName=GND Pin=UREF2V5-4
+Added Pin To Net: NetName=GND Pin=UREF2V5-5
+Added Pin To Net: NetName=VREF2V5 Pin=UREF2V5-6
+Added Pin To Net: NetName=VREF2V5 Pin=UREF2V5-7
+Added Pin To Net: NetName=GND Pin=UREF2V5-8
+Added Member To Class: ClassName=HiSpeedADC Member=Component ADC1 LTC2380IMS-24#PBF
+Added Member To Class: ClassName=HiSpeedADC Member=Component UREF2V5 LTC6655MS8-2.5

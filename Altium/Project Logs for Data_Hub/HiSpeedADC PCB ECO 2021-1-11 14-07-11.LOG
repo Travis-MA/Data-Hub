@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=VREF2V5 Pin=S1-1
+Removed Pin From Net: NetName=GND Pin=S1-3
+Removed Pin From Net: NetName=NetJP2_1 Pin=S3-1
+Removed Pin From Net: NetName=CLK_IN Pin=S3-3
+Change Component Footprint: Designator=S1 Old Footprint=SW-TH_SSSU011700 New Footprint=SW-TH_SS-12D07-X-X
+Change Component Footprint: Designator=S3 Old Footprint=SW-TH_SSSU011700 New Footprint=SW-TH_SS-12D07-X-X
+Change Component Comment : Designator=S1 Old Comment=SW01 New Comment=SS12D07
+Change Component Comment : Designator=S3 Old Comment=SW01 New Comment=SS12D07
+Added Pin To Net: NetName=GND Pin=S1-1
+Added Pin To Net: NetName=VREF2V5 Pin=S1-3
+Added Pin To Net: NetName=CLK_IN Pin=S3-1
+Added Pin To Net: NetName=NetJP2_1 Pin=S3-3
