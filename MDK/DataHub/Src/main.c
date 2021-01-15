@@ -49,10 +49,6 @@
 
 /* USER CODE BEGIN PV */
 
-uint8_t r_data;
-unsigned short slave_id = 1;
-const unsigned short RINGBUFF_LEN=1024;
-uint8_t modbus_response_test[]={"Modbus Response Test"};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -63,45 +59,65 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-typedef struct
-{
-  unsigned short Head; 
-  unsigned short Tail;
-	unsigned short Length;
-	unsigned char  Data[RINGBUFF_LEN];
-}RingBuff_t;
-RingBuff_t uart1Buff;
 
-void uart1Buff_clear(void)
-{
-	uart1Buff.Head=0;
-	uart1Buff.Tail=0;
-	uart1Buff.Length=0;
-}
+uint16_t Modbus_Slave_ID = 0x01;
+uint16_t Modbus_Hold_Reg[16];
 
-unsigned char uart1Buff_write(unsigned char data)
+#define UART1_RX_LEN 1024
+uint8_t UART1_RX_BUF[UART1_RX_LEN];
+__IO uint16_t UART1_RX_STA = 0;
+
+void USART1_IRQHandler(void)
 {
-	if(uart1Buff.Length >= RINGBUFF_LEN)
+	if(__HAL_UART_GET_FLAG(&huart1, UART_FLAG_IDLE) != RESET)  //若空闲中断标记被置位
 	{
-		return 0;
+	    __HAL_UART_CLEAR_IDLEFLAG(&huart1);  // 清楚中断标记
+	    HAL_UART_DMAStop(&huart1);           // 停止DMA接收
+			UART1_RX_STA = UART1_RX_LEN - __HAL_DMA_GET_COUNTER(huart1.hdmarx);  // 总数据量减去未接收到的数据量为已经接收到的数据量
+	    UART1_RX_BUF[UART1_RX_STA] = 0;  // 添加结束符
+	    UART1_RX_STA |= 0X8000;         // 标记接收结束
+	    HAL_UART_Receive_DMA(&huart1, UART1_RX_BUF, UART1_RX_LEN);  // 重启DMA接收
 	}
-	uart1Buff.Data[uart1Buff.Tail]=data;
-	uart1Buff.Tail=(uart1Buff.Tail+1)%RINGBUFF_LEN;
-	uart1Buff.Length++;
-	return 1;
-
 }
 
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+//Modbus 03 读取保持寄存器16位
+void Read_Reg_Hold(void)
 {
-	
-	HAL_UART_Receive_DMA(&huart1, &r_data ,1);
-	uart1Buff_write(r_data);
-  HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
-
-	printf("Fucku\r\n");
+	if(UART1_RX_BUF[2]==0x00 && UART1_RX_BUF[4]==0x00)
+	{
+		uint16_t start_reg = UART1_RX_BUF[3]; //起始寄存器地址
+		uint16_t bit_num = UART1_RX_BUF[5]; //读取寄存器数量
+		for(uint16_t i = start_reg; i<start_reg+bit_num; i++)
+		{
+			printf("i");
+		}
+	}
 }
 
+void Modbus_Handle(void)
+{
+	if(UART1_RX_BUF[0]!=Modbus_Slave_ID)
+	{
+		UART1_RX_STA = 0; //清空接收缓存
+		return;
+	}
+	switch(UART1_RX_BUF[1])
+	{
+		case 0x01:{}break; //读取输出线圈状态
+		case 0x02:{}break; //读取输入线圈状态
+		case 0x03: //读取保持寄存器
+		{
+			Read_Reg_Hold();
+		}break; 
+		case 0x04:{}break; //读取输入寄存器
+		case 0x05:{}break; //设置单个线圈
+		case 0x06:{}break; //设置单个寄存器
+		case 0x0f:{}break; //设置多个线圈
+		case 0x10:{}break; //设置多个寄存器
+			default:{}break; //错误
+	}
+
+}
 
 /* USER CODE END 0 */
 
@@ -140,8 +156,12 @@ int main(void)
   MX_USART2_UART_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-	HAL_UART_Receive_DMA(&huart1, &r_data ,1);
-	//HAL_UART_Transmit_DMA(&huart1, modbus_response_test , sizeof(modbus_response_test ));
+
+
+	//USART1 Modbus串口初始化
+	HAL_UART_Receive_DMA(&huart1, UART1_RX_BUF, UART1_RX_LEN);  //启动DMA接收
+	__HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);              //使能空闲中断
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -151,19 +171,14 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		/*
-		if(HAL_UART_Receive_DMA(&huart1, &modbus_receive_data, 1)==HAL_OK)
-		{
-			HAL_UART_Transmit(&huart1, &modbus_receive_data,1,0);
-		}*/
-		HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
-		printf("UART1_DMA Test!\r\n");
-	  for(int i=0; i<uart1Buff.Length; i++)
-		{
-			printf("pp");
-		}
 		
-		HAL_Delay(5000);
+		//若USART1 Modbus串口接收到数据
+		if(UART1_RX_STA & 0X8000)
+		{
+			Modbus_Handle();
+			HAL_UART_Transmit(&huart1, UART1_RX_BUF, UART1_RX_STA & 0X7FFF, 100);    // ???????????
+			UART1_RX_STA = 0;
+		}
   }
   /* USER CODE END 3 */
 }
