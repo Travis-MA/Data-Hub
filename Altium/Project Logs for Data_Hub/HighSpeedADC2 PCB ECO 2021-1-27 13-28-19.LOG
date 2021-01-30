@@ -1,0 +1,15 @@
+Change Component Designator: OldDesignator= NewDesignator=E531
+Change Component Designator: OldDesignator=LTC2380-24 NewDesignator=ADC1
+Added Component: Designator=R1(0805_R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "供应商链接"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.szlcsc.com/product/details_26856.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "LC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SuppliersPartNumber"; Value = "C26113"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=R1-1
+Added Pin To Net: NetName=NetADC1_1 Pin=R1-2
+Added Member To Class: ClassName=HiSpeedADC2 Member=Component ADC1 LTC2380IMS-24#PBF
+Added Member To Class: ClassName=HiSpeedADC2 Member=Component E531 A2541WV-2P
+Added Member To Class: ClassName=HiSpeedADC2 Member=Component R1 1k
+Added Member To Class: ClassName=HiSpeedADC2 Member=Component VIN- BNC
