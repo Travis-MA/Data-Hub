@@ -1518,3 +1518,12 @@
 [0125/184537:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
 [0125/184537:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
 [0125/184537:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0127/132302:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0127/132302:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0127/171643:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0127/195626:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0127/212552:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0130/153603:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0130/153608:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0130/153613:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0130/153618:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
