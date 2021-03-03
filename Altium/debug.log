@@ -1527,3 +1527,4 @@
 [0130/153608:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
 [0130/153613:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
 [0130/153618:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
+[0303/191211:WARNING:dns_config_service_win.cc(665)] Failed to read DnsConfig.
