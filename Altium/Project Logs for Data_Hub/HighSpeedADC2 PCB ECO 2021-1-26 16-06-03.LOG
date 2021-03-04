@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=VINP Pin=P1-5
+Removed Pin From Net: NetName=VINN Pin=P1-6
+Change Component Designator: OldDesignator=UREF ON NewDesignator=D1
+Added Pin To Net: NetName=VINN Pin=P1-5
+Added Pin To Net: NetName=VINP Pin=P1-6

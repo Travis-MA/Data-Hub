@@ -1,0 +1,5 @@
+Change Component Designator: OldDesignator=Gain NewDesignator=S1
+Change Component Designator: OldDesignator=LED1 NewDesignator=D1
+Added Pin To Net: NetName=D3V3 Pin=DFLIP1-6
+Added Member To Class: ClassName=HiSpeedADC Member=Component D1 LED2
+Added Member To Class: ClassName=HiSpeedADC Member=Component S1 SS12D07
