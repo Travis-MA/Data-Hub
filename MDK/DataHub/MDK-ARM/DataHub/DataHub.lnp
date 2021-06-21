@@ -5,6 +5,7 @@
 "datahub\dma.o"
 "datahub\usart.o"
 "datahub\spi.o"
+"datahub\tim.o"
 "datahub\stm32l4xx_it.o"
 "datahub\stm32l4xx_hal_msp.o"
 "datahub\stm32l4xx_hal_uart.o"
@@ -29,6 +30,7 @@
 "datahub\stm32l4xx_hal_cortex.o"
 "datahub\stm32l4xx_hal_exti.o"
 "datahub\system_stm32l4xx.o"
+"datahub\oled.o"
 --library_type=microlib --strict --scatter "DataHub\DataHub.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

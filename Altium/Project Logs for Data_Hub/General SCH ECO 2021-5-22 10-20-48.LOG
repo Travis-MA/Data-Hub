@@ -1,0 +1,4 @@
+Remove Pin=BC35A-15 From Net=NB_RST
+Remove Pin=BC35A-18 From Net=NET_LIGHT
+Remove Pin=BC35A-19 From Net=DBG_RXD
+Remove Pin=BC35A-20 From Net=DBG_TXD

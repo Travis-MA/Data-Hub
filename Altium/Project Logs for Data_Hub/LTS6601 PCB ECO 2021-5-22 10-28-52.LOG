@@ -1,0 +1,14 @@
+Added Pin To Net: NetName=NB_RST Pin=BC?-15
+Added Pin To Net: NetName=NET_LIGHT Pin=BC?-18
+Added Pin To Net: NetName=DBG_RXD Pin=BC?-19
+Added Pin To Net: NetName=DBG_TXD Pin=BC?-20
+Added Pin To Net: NetName=USIM_VDD Pin=BC?-38
+Added Pin To Net: NetName=RF_ANT Pin=BC?-53
+Added Pin To Net: NetName=USIM_CLK Pin=BC?-41
+Added Net: Name=USIM_CLK
+Added Pin To Net: NetName=USIM_DATA Pin=BC?-40
+Added Net: Name=USIM_DATA
+Added Pin To Net: NetName=USIM_GND Pin=BC?-42
+Added Net: Name=USIM_GND
+Added Pin To Net: NetName=USIM_RST Pin=BC?-39
+Added Net: Name=USIM_RST

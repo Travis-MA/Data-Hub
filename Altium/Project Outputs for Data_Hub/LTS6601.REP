@@ -1,0 +1,11 @@
+------------------------------------------------------------
+Design Hierarchy Report for Data_Hub.PrjPCB
+-- 2021/5/25
+-- 10:58:02
+------------------------------------------------------------
+
+General                       SCH        (General.SchDoc)
+    U_BC35_module             SCH        (BC35_module.SchDoc)
+    U_MCU                     SCH        (MCU.SchDoc)
+    U_MultiChannel_ADC        SCH        (MultiChannel_ADC.SchDoc)
+    U_Source                  SCH        (Source.SchDoc)

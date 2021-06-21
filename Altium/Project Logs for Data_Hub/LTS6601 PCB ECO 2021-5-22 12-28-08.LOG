@@ -1,0 +1,17 @@
+Removed Member From Class: ClassName=U_BC35_module Member=CONN_SIM
+Change Component Designator: OldDesignator=ADC? NewDesignator=ADC1
+Added Component: Designator=SIM1(SIM-SMD_SIM-002-P6)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=USIM_VDD Pin=SIM1-1
+Added Pin To Net: NetName=NetC19_2 Pin=SIM1-2
+Added Pin To Net: NetName=NetC18_2 Pin=SIM1-3
+Added Pin To Net: NetName=USIM_GND Pin=SIM1-5
+Added Pin To Net: NetName=NetC17_2 Pin=SIM1-7
+Change Net Name : Old Net Name=NetADC?_9 New Net Name=NetADC1_9
+Change Net Name : Old Net Name=NetADC?_10 New Net Name=NetADC1_10
+Change Net Name : Old Net Name=NetADC?_12 New Net Name=NetADC1_12
+Change Net Name : Old Net Name=NetADC?_13 New Net Name=NetADC1_13
+Change Net Name : Old Net Name=NetADC?_15 New Net Name=NetADC1_15
+Change Net Name : Old Net Name=NetADC?_21 New Net Name=NetADC1_21
+Change Net Name : Old Net Name=NetADC?_22 New Net Name=NetADC1_22
+Added Member To Class: ClassName=U_BC35_module Member=Component SIM1 SIM_Micro

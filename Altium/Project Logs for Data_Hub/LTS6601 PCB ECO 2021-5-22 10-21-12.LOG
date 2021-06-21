@@ -1,0 +1,61 @@
+Removed Pin From Net: NetName=GND Pin=BC35-2-2
+Removed Pin From Net: NetName=NB_RST Pin=BC35-2-15
+Removed Pin From Net: NetName=NET_LIGHT Pin=BC35-2-18
+Removed Pin From Net: NetName=DBG_RXD Pin=BC35-2-19
+Removed Pin From Net: NetName=DBG_TXD Pin=BC35-2-20
+Removed Pin From Net: NetName=VDD_EXT Pin=BC35-2-26
+Removed Pin From Net: NetName=RXD Pin=BC35-2-29
+Removed Pin From Net: NetName=TXD Pin=BC35-2-30
+Removed Pin From Net: NetName=USIM_VDD Pin=BC35-2-38
+Removed Pin From Net: NetName=GND Pin=BC35-2-43
+Removed Pin From Net: NetName=U3V3 Pin=BC35-2-45
+Removed Pin From Net: NetName=U3V3 Pin=BC35-2-46
+Removed Pin From Net: NetName=GND Pin=BC35-2-47
+Removed Pin From Net: NetName=GND Pin=BC35-2-48
+Removed Pin From Net: NetName=GND Pin=BC35-2-51
+Removed Pin From Net: NetName=GND Pin=BC35-2-52
+Removed Pin From Net: NetName=RF_ANT Pin=BC35-2-53
+Removed Pin From Net: NetName=GND Pin=BC35-2-54
+Removed Member From Class: ClassName=U_BC35_module Member=BC35-2
+Removed Member From Class: ClassName=U_MultiChannel_ADC Member=U1B
+Removed Member From Class: ClassName=U_MultiChannel_ADC Member=U1C
+Removed Member From Class: ClassName=U_MultiChannel_ADC Member=U1D
+Added Component: Designator=BC?(BC35-G)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Geometry.Height"; Value = "2.2mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "QUECTEL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Description"; Value = "BC35-G 19.9X23.6mm H2.2mm RO"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "BC35-G"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=BC?-2
+Added Pin To Net: NetName=VDD_EXT Pin=BC?-26
+Added Pin To Net: NetName=RXD Pin=BC?-29
+Added Pin To Net: NetName=TXD Pin=BC?-30
+Added Pin To Net: NetName=GND Pin=BC?-43
+Added Pin To Net: NetName=U3V3 Pin=BC?-45
+Added Pin To Net: NetName=U3V3 Pin=BC?-46
+Added Pin To Net: NetName=GND Pin=BC?-47
+Added Pin To Net: NetName=GND Pin=BC?-48
+Added Pin To Net: NetName=GND Pin=BC?-51
+Added Pin To Net: NetName=GND Pin=BC?-52
+Added Pin To Net: NetName=GND Pin=BC?-54
+Added Pin To Net: NetName=GND Pin=BC?-59
+Added Pin To Net: NetName=GND Pin=BC?-60
+Added Pin To Net: NetName=GND Pin=BC?-61
+Added Pin To Net: NetName=GND Pin=BC?-62
+Added Pin To Net: NetName=GND Pin=BC?-63
+Added Pin To Net: NetName=GND Pin=BC?-64
+Added Pin To Net: NetName=GND Pin=BC?-65
+Added Pin To Net: NetName=GND Pin=BC?-66
+Added Pin To Net: NetName=GND Pin=BC?-71
+Added Pin To Net: NetName=GND Pin=BC?-72
+Added Pin To Net: NetName=GND Pin=BC?-73
+Added Pin To Net: NetName=GND Pin=BC?-74
+Added Pin To Net: NetName=GND Pin=BC?-81
+Added Pin To Net: NetName=GND Pin=BC?-82
+Added Pin To Net: NetName=GND Pin=BC?-83
+Added Pin To Net: NetName=GND Pin=BC?-92
+Added Pin To Net: NetName=GND Pin=BC?-93
+Added Pin To Net: NetName=GND Pin=BC?-94
+Added Pin To Net: NetName=NetMCU1_15 Pin=MCU1-22
+Added Pin To Net: NetName=NetMCU1_15 Pin=MCU1-23
+Added Member To Class: ClassName=U_BC35_module Member=Component BC? (BC35A) BC35-G

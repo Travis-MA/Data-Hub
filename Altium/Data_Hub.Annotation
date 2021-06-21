@@ -1,0 +1,21 @@
+[DesignatorManager]
+LogicalDesignator0=BC35
+LogicalPartID0=1
+DocumentName0=BC35_module.SchDoc
+ChannelName0=U_BC35_module
+UniqueID0=\NRFMMSAY\FPMASSIO
+PhysicalDesignator0=BC?
+PhysicalDesignatorLocked0=0
+LogicalDesignator1=BC35
+LogicalPartID1=2
+DocumentName1=BC35_module.SchDoc
+ChannelName1=U_BC35_module
+UniqueID1=\NRFMMSAY\VRIMQQXD
+PhysicalDesignator1=BC?
+PhysicalDesignatorLocked1=0
+
+[SheetNumberManager]
+SheetNumberOrder=Display Order
+SheetNumberMethod=Increasing
+
+

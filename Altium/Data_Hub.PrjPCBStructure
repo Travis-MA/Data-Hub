@@ -1,1 +1,5 @@
-Record=TopLevelDocument|FileName=HiSpeedADC2.SchDoc
+Record=TopLevelDocument|FileName=General.SchDoc
+Record=SheetSymbol|SourceDocument=General.SchDoc|Designator=U_BC35_module|SchDesignator=U_BC35_module|FileName=BC35_module.SchDoc|SymbolType=Normal|RawFileName=BC35_module.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=General.SchDoc|Designator=U_MCU|SchDesignator=U_MCU|FileName=MCU.SchDoc|SymbolType=Normal|RawFileName=MCU.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=General.SchDoc|Designator=U_MultiChannel_ADC|SchDesignator=U_MultiChannel_ADC|FileName=MultiChannel_ADC.SchDoc|SymbolType=Normal|RawFileName=MultiChannel_ADC.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=General.SchDoc|Designator=U_Source|SchDesignator=U_Source|FileName=Source.SchDoc|SymbolType=Normal|RawFileName=Source.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 

@@ -1,0 +1,64 @@
+Removed Pin From Net: NetName=GND Pin=C20-1
+Change Component Designator: OldDesignator=C41 NewDesignator=C44
+Change component parameters: Designator = "C9"; Footprint = "CC3216-1206"; UniqueID = "\HBHHVFPL\HVAXCJVX"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Revision"; Value = "July-2002: Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "22pF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C10"; Footprint = "CC3216-1206"; UniqueID = "\HBHHVFPL\PEHHTFWJ"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Revision"; Value = "July-2002: Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "22pF"; VariantName = "[No Variations]"
+Added Component: Designator=C42(CC3216-1206)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Revision"; Value = "July-2002: Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "12pF"; VariantName = "[No Variations]"
+Added Component: Designator=C43(CC3216-1206)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Revision"; Value = "July-2002: Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "12pF"; VariantName = "[No Variations]"
+Added Component: Designator=P6(HDR2X4 - SMT)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=X2(3215)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=USIM_GND Pin=C20-1
+Added Pin To Net: NetName=GND Pin=C42-2
+Added Pin To Net: NetName=GND Pin=C43-2
+Added Pin To Net: NetName=KEY_RST Pin=P6-1
+Added Pin To Net: NetName=GND Pin=P6-5
+Added Pin To Net: NetName=GND Pin=P6-6
+Added Pin To Net: NetName=D3V3 Pin=P6-7
+Added Pin To Net: NetName=D3V3 Pin=P6-8
+Added Pin To Net: NetName=GND Pin=SIM1-8
+Added Pin To Net: NetName=GND Pin=SIM1-9
+Added Pin To Net: NetName=GND Pin=SIM1-10
+Added Pin To Net: NetName=GND Pin=SIM1-11
+Change Net Name : Old Net Name=NetC41_2 New Net Name=NetC44_2
+Added Pin To Net: NetName=NetC42_1 Pin=C42-1
+Added Pin To Net: NetName=NetC42_1 Pin=MCU1-4
+Added Pin To Net: NetName=NetC42_1 Pin=X2-1
+Added Net: Name=NetC42_1
+Added Pin To Net: NetName=NetC43_1 Pin=C43-1
+Added Pin To Net: NetName=NetC43_1 Pin=MCU1-3
+Added Pin To Net: NetName=NetC43_1 Pin=X2-2
+Added Net: Name=NetC43_1
+Added Pin To Net: NetName=ST_SWCLK Pin=MCU1-49
+Added Pin To Net: NetName=ST_SWCLK Pin=P6-2
+Added Net: Name=ST_SWCLK
+Added Pin To Net: NetName=ST_SWDIO Pin=MCU1-46
+Added Pin To Net: NetName=ST_SWDIO Pin=P6-4
+Added Net: Name=ST_SWDIO
+Added Member To Class: ClassName=U_MCU Member=Component C42 Cap Chip 1206
+Added Member To Class: ClassName=U_MCU Member=Component C43 Cap Chip 1206
+Added Member To Class: ClassName=U_MCU Member=Component P6 Header 4X2_SMT
+Added Member To Class: ClassName=U_MCU Member=Component X2 36.768K

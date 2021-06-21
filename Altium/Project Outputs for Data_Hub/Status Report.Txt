@@ -1,9 +1,10 @@
-Output: Bill of Materials
-Type  : BOM
+Output: Report Project Hierarchy
+Type  : ReportHierarchy
 From  : Variant [[No Variations]] of Project [Data_Hub.PrjPCB]
+   Generated File[LTS6601.REP]
 
 
-Files Generated   : 0
+Files Generated   : 1
 Documents Printed : 0
 
-Finished Output Generation At 22:55:34 On 2021/1/11
+Finished Output Generation At 10:58:02 On 2021/5/25

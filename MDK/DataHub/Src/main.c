@@ -23,11 +23,14 @@
 #include "dma.h"
 #include "usart.h"
 #include "spi.h"
+#include "tim.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stdio.h"
+#include "string.h"
+#include "oled.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -67,57 +70,288 @@ uint16_t Modbus_Hold_Reg[16];
 uint8_t UART1_RX_BUF[UART1_RX_LEN];
 __IO uint16_t UART1_RX_STA = 0;
 
+
+#define UART3_RX_LEN 1024
+uint8_t UART3_RX_BUF[UART3_RX_LEN];
+__IO uint16_t UART3_RX_STA = 0;
+
+uint16_t AT_command = 0;
+uint16_t text8y = 0;
+
+void OLED_CLR(){
+	OLED_Clear();
+	text8y = 0;
+	OLED_Refresh();
+}
+
+
+void TrimSpace(char* str)
+{
+  char *start = str - 1;
+    char *end = str;
+    char *p = str;
+    while(*p)
+    {
+        switch(*p)
+        {
+        case ' ':
+					{
+                if(start + 1==p)
+                    start = p;
+            }
+            break;
+        case '\r':
+					{
+                if(start + 1==p)
+                    start = p;
+            }
+            break;
+        case '\n':
+            {
+                if(start + 1==p)
+                    start = p;
+            }
+            break;
+        default:
+            break;
+        }
+        ++p;
+    }
+    //??????????? ????
+    --p;
+    ++start;
+    if(*start == 0)
+    {
+        //??????????
+        *str = 0 ;
+        return;
+    }
+    end = p + 1;
+    while(p > start)
+    {
+        switch(*p)
+        {
+        case ' ':
+					{
+                if(end - 1 == p)
+                    end = p;
+            }break;
+        case '\r':
+					{
+                if(end - 1 == p)
+                    end = p;
+            }break;
+        case '\n':
+            {
+                if(end - 1 == p)
+                    end = p;
+            }
+            break;
+        default:
+            break;
+        }
+        --p;
+    }
+    memmove(str,start,end-start);
+    *(str + (int)end - (int)start) = 0;
+}
+
+void LED_Bleep(int ms, int times)
+{
+	for(int i = 0; i<times*2; i++)
+	{			
+		HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);//LED亮灭状�?�翻�?
+		HAL_Delay(ms);//延时1000毫秒=1秒钟
+
+	}
+	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
+}
+
 void USART1_IRQHandler(void)
 {
+	if(__HAL_UART_GET_FLAG(&huart1, UART_FLAG_ORE )!= RESET)
+	{
+		//printf("ORE\r\n");
+		__HAL_UART_CLEAR_OREFLAG(&huart1);		
+	}else if(__HAL_UART_GET_FLAG(&huart1, UART_FLAG_NE )!= RESET){
+		//printf("NE \r\n");
+		__HAL_UART_CLEAR_NEFLAG(&huart1);
+	}else if(__HAL_UART_GET_FLAG(&huart1, UART_FLAG_FE )!= RESET){
+		//printf("FE \r\n");
+		__HAL_UART_CLEAR_FEFLAG(&huart1);
+	}else if(__HAL_UART_GET_FLAG(&huart1, UART_FLAG_PE )!= RESET){
+		//printf("PE \r\n");
+		__HAL_UART_CLEAR_PEFLAG(&huart1);
+	}else{
+		//printf("\r\n Normal, ");
+	}
 	if(__HAL_UART_GET_FLAG(&huart1, UART_FLAG_IDLE) != RESET)  //若空闲中断标记被置位
 	{
 	    __HAL_UART_CLEAR_IDLEFLAG(&huart1);  // 清楚中断标记
 	    HAL_UART_DMAStop(&huart1);           // 停止DMA接收
 			UART1_RX_STA = UART1_RX_LEN - __HAL_DMA_GET_COUNTER(huart1.hdmarx);  // 总数据量减去未接收到的数据量为已经接收到的数据量
-	    UART1_RX_BUF[UART1_RX_STA] = 0;  // 添加结束符
+	    UART1_RX_BUF[UART1_RX_STA] = 0;  // 添加结束�?
 	    UART1_RX_STA |= 0X8000;         // 标记接收结束
 	    HAL_UART_Receive_DMA(&huart1, UART1_RX_BUF, UART1_RX_LEN);  // 重启DMA接收
 	}
 }
 
-//Modbus 03 读取保持寄存器16位
+void USART3_IRQHandler(void)
+{
+
+	if(__HAL_UART_GET_FLAG(&huart3, UART_FLAG_ORE )!= RESET)
+	{
+		//printf("ORE\r\n");
+		__HAL_UART_CLEAR_OREFLAG(&huart3);		
+	}else if(__HAL_UART_GET_FLAG(&huart3, UART_FLAG_NE )!= RESET){
+		//printf("NE \r\n");
+		__HAL_UART_CLEAR_NEFLAG(&huart3);
+	}else if(__HAL_UART_GET_FLAG(&huart3, UART_FLAG_FE )!= RESET){
+		//printf("FE \r\n");
+		__HAL_UART_CLEAR_FEFLAG(&huart3);
+	}else if(__HAL_UART_GET_FLAG(&huart3, UART_FLAG_PE )!= RESET){
+		//printf("PE \r\n");
+		__HAL_UART_CLEAR_PEFLAG(&huart3);
+	}else{
+		//printf("\r\n Normal, ");
+	}
+	if(__HAL_UART_GET_FLAG(&huart3, UART_FLAG_IDLE) != RESET)  //若空闲中断标记被置位
+	{
+		//printf("Interrupt reset\r\n");
+	    __HAL_UART_CLEAR_IDLEFLAG(&huart3);  // 清楚中断标记
+	    HAL_UART_DMAStop(&huart3);           // 停止DMA接收
+			UART3_RX_STA = UART3_RX_LEN - __HAL_DMA_GET_COUNTER(huart3.hdmarx);  // 总数据量减去未接收到的数据量为已经接收到的数据量
+		  //printf("PC: UART3_RX_STA: %u\r\n", UART3_RX_STA);
+	    UART3_RX_BUF[UART3_RX_STA] = 0;  // 添加结束�?
+	    UART3_RX_STA |= 0X8000;         // 标记接收结束
+	    HAL_UART_Receive_DMA(&huart3, UART3_RX_BUF, UART3_RX_LEN);  // 重启DMA接收
+	}
+}
+
+
+
+//Modbus 03 读取保持寄存�?16�?
 void Read_Reg_Hold(void)
 {
-	if(UART1_RX_BUF[2]==0x00 && UART1_RX_BUF[4]==0x00)
+	//printf("reg\r\n");
+	if((UART1_RX_STA & 0X7FFF) > 0x06)
 	{
-		uint16_t start_reg = UART1_RX_BUF[3]; //起始寄存器地址
-		uint16_t bit_num = UART1_RX_BUF[5]; //读取寄存器数量
-		for(uint16_t i = start_reg; i<start_reg+bit_num; i++)
+		if(UART1_RX_BUF[2]==0x00 && UART1_RX_BUF[4]==0x00)
 		{
-			printf("i");
+			uint16_t start_reg = UART1_RX_BUF[3]; //起始寄存器地�?
+			uint16_t bit_num = UART1_RX_BUF[5]; //读取寄存器数�?
+			printf("PC: START_REG_NUM: %u, BIT_NUM %u \r\n",start_reg,bit_num);
 		}
 	}
 }
 
 void Modbus_Handle(void)
 {
+	//HAL_UART_Transmit(&huart1, UART1_RX_BUF, UART1_RX_STA & 0X7FFF, 100);    // ???????????
+	printf("PC: MODBUS HEX, LENGTH: %u \r\n", UART1_RX_STA & 0X7FFF);
+
 	if(UART1_RX_BUF[0]!=Modbus_Slave_ID)
-	{
-		UART1_RX_STA = 0; //清空接收缓存
-		return;
+	{		
+		printf("PC: ID is not correct.\r\n");
 	}
-	switch(UART1_RX_BUF[1])
-	{
-		case 0x01:{}break; //读取输出线圈状态
-		case 0x02:{}break; //读取输入线圈状态
-		case 0x03: //读取保持寄存器
+	else{
+		printf("PC: ID is correct.\r\n");
+		switch(UART1_RX_BUF[1])
 		{
-			Read_Reg_Hold();
-		}break; 
-		case 0x04:{}break; //读取输入寄存器
-		case 0x05:{}break; //设置单个线圈
-		case 0x06:{}break; //设置单个寄存器
-		case 0x0f:{}break; //设置多个线圈
-		case 0x10:{}break; //设置多个寄存器
-			default:{}break; //错误
+			case 0x01:{}break; //读取输出线圈状�??
+			case 0x02:{}break; //读取输入线圈状�??
+			case 0x03: //读取保持寄存�?
+			{
+				Read_Reg_Hold();
+			}break; 
+			case 0x04:{}break; //读取输入寄存�?
+			case 0x05:{}break; //设置单个线圈
+			case 0x06:{}break; //设置单个寄存�?
+			case 0x0f:{}break; //设置多个线圈
+			case 0x10:{}break; //设置多个寄存�?
+				default:{}break; //错误
+		}
+	}
+}
+
+void AT_Command_Set(int step)
+{
+
+	switch(step)
+	{
+		case 1:{
+			OLED_CLR();
+			printf("\r\nPC: AT+CGSN=1------\r\n");
+			AT_command = 1;
+			uint8_t * net_test = (uint8_t*)"AT+CGSN=1\r\n";
+			HAL_UART_Transmit(&huart3, net_test, 16, 100);    // ???????????       
+			
+		}break;
+		case 2:{
+			printf("\r\nPC: AT+CGATT?---------\r\n");
+			AT_command = 2;	
+	  	uint8_t * net_test = (uint8_t*)"AT+CGATT?\r\n";
+			HAL_UART_Transmit(&huart3, net_test, 16, 100);    // ???????????       
+						
+		}break;
+		case 3:{
+			printf("\r\nPC: AT+CSQ---------\r\n");
+			AT_command = 3;		
+	  	uint8_t * net_test = (uint8_t*)"AT+CSQ\r\n";
+			HAL_UART_Transmit(&huart3, net_test, 16, 100);    // ???????????    
+				
+		}break;
+		case 4:{					
+			printf("\r\nPC: AT+NMGS---------\r\n");
+			AT_command = 4;	
+			uint8_t * net_test = (uint8_t*)"AT+NMGS=17,0019992f4b4ccc66667fff7289b332ffff\r\n";
+			HAL_UART_Transmit(&huart3, net_test, 64, 100);    // ???????????   
+			
+		}
+		default:{}break;
 	}
 
+	//HAL_Delay(200);
+	//uint8_t * net_quality = (uint8_t*)"AT+CSQ<CR>\r\n";
+	//HAL_UART_Transmit(&huart3, net_quality, 16, 100);    // ???????????       
+	//AT_command = 2;
+	//LED_Bleep(50,4);
+	
 }
+
+void AT_RX_Handle(void)
+{
+	TrimSpace((char*)UART3_RX_BUF);
+	HAL_UART_Transmit(&huart1, UART3_RX_BUF, UART3_RX_STA & 0X7FFF, 100);    // ???????????
+	UART3_RX_STA = 0;
+	
+	OLED_ShowString(0,text8y,UART3_RX_BUF,8,1);
+	text8y+=8;
+	OLED_Refresh();
+	switch(AT_command)
+	{
+		case 1:{
+			AT_Command_Set(2);
+		}break;
+		case 2:{
+			AT_Command_Set(3);
+		}break;
+		case 3:{
+			AT_Command_Set(4);
+		}break;
+			default:{}break;
+	
+	}
+	OLED_Refresh();
+}
+
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+		OLED_CLR();
+		AT_Command_Set(1);	
+}
+
 
 /* USER CODE END 0 */
 
@@ -151,16 +385,30 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_LPUART1_UART_Init();
   MX_USART1_UART_Init();
-  MX_USART2_UART_Init();
+  MX_USART3_UART_Init();
+  MX_LPUART1_UART_Init();
   MX_SPI1_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
+	OLED_Init();
+	LED_ON;
+	OLED_Refresh();
+	
+	HAL_TIM_Base_Start_IT(&htim2);
 
-	//USART1 Modbus串口初始化
+
+	//LED_Bleep(200,2);
+	
+	//USART1 Modbus串口初始�?
 	HAL_UART_Receive_DMA(&huart1, UART1_RX_BUF, UART1_RX_LEN);  //启动DMA接收
 	__HAL_UART_ENABLE_IT(&huart1, UART_IT_IDLE);              //使能空闲中断
+	
+	//__HAL_UART_DISABLE_IT(&huart3, UART_IT_PE);
+	//HAL_UART_Receive_DMA(&huart3, UART3_RX_BUF, UART3_RX_LEN);  //启动DMA接收
+	__HAL_UART_ENABLE_IT(&huart3, UART_IT_IDLE);              //使能空闲中断
+	
 
   /* USER CODE END 2 */
 
@@ -172,12 +420,21 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 		
-		//若USART1 Modbus串口接收到数据
+		//若USART1 Modbus串口接收到数�?
 		if(UART1_RX_STA & 0X8000)
 		{
+			printf("PC:  Modbus handler \r\n");
 			Modbus_Handle();
-			HAL_UART_Transmit(&huart1, UART1_RX_BUF, UART1_RX_STA & 0X7FFF, 100);    // ???????????
 			UART1_RX_STA = 0;
+		
+		}
+		
+		//若UART3 Modbus串口接收到数�?
+		if(UART3_RX_STA & 0X8000)
+		{
+			//printf("PC:  AT handler \r\n");
+			AT_RX_Handle();
+			
 		}
   }
   /* USER CODE END 3 */
@@ -195,10 +452,8 @@ void SystemClock_Config(void)
 
   /** Initializes the CPU, AHB and APB busses clocks 
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_MSI;
-  RCC_OscInitStruct.MSIState = RCC_MSI_ON;
-  RCC_OscInitStruct.MSICalibrationValue = 0;
-  RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -208,7 +463,7 @@ void SystemClock_Config(void)
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_MSI;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSE;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
@@ -217,10 +472,10 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART1|RCC_PERIPHCLK_USART2
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART1|RCC_PERIPHCLK_USART3
                               |RCC_PERIPHCLK_LPUART1;
   PeriphClkInit.Usart1ClockSelection = RCC_USART1CLKSOURCE_PCLK2;
-  PeriphClkInit.Usart2ClockSelection = RCC_USART2CLKSOURCE_PCLK1;
+  PeriphClkInit.Usart3ClockSelection = RCC_USART3CLKSOURCE_PCLK1;
   PeriphClkInit.Lpuart1ClockSelection = RCC_LPUART1CLKSOURCE_PCLK1;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
@@ -235,7 +490,20 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	if(GPIO_Pin==KEY1_Pin)
+	{
+		OLED_CLR();
+		AT_Command_Set(1);
+	}
+	if(GPIO_Pin==KEY2_Pin)
+	{
+		OLED_CLR();
+		AT_Command_Set(3);	
+	}
 
+}
 /* USER CODE END 4 */
 
 /**

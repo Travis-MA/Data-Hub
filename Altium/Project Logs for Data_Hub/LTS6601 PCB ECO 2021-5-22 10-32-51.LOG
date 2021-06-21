@@ -1,0 +1,126 @@
+Added Component: Designator=C17(1206_C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "常见贴片电容尺寸图"; Value = "https://wenku.baidu.com/view/21d5206100f69e3143323968011ca300a6c3f6b2.html"; VariantName = "[No Variations]"
+Added Component: Designator=C18(1206_C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "常见贴片电容尺寸图"; Value = "https://wenku.baidu.com/view/21d5206100f69e3143323968011ca300a6c3f6b2.html"; VariantName = "[No Variations]"
+Added Component: Designator=C19(1206_C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "常见贴片电容尺寸图"; Value = "https://wenku.baidu.com/view/21d5206100f69e3143323968011ca300a6c3f6b2.html"; VariantName = "[No Variations]"
+Added Component: Designator=C20(1206_C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "常见贴片电容尺寸图"; Value = "https://wenku.baidu.com/view/21d5206100f69e3143323968011ca300a6c3f6b2.html"; VariantName = "[No Variations]"
+Added Component: Designator=C21(1206_C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "常见贴片电容尺寸图"; Value = "https://wenku.baidu.com/view/21d5206100f69e3143323968011ca300a6c3f6b2.html"; VariantName = "[No Variations]"
+Added Component: Designator=C32(1206_C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "常见贴片电容尺寸图"; Value = "https://wenku.baidu.com/view/21d5206100f69e3143323968011ca300a6c3f6b2.html"; VariantName = "[No Variations]"
+Added Component: Designator=C33(1206_C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "常见贴片电容尺寸图"; Value = "https://wenku.baidu.com/view/21d5206100f69e3143323968011ca300a6c3f6b2.html"; VariantName = "[No Variations]"
+Added Component: Designator=R7(0805_R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "供应商链接"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.szlcsc.com/product/details_26856.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "LC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SuppliersPartNumber"; Value = "C26113"; VariantName = "[No Variations]"
+Added Component: Designator=R8(0805_R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "供应商链接"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.szlcsc.com/product/details_26856.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "LC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SuppliersPartNumber"; Value = "C26113"; VariantName = "[No Variations]"
+Added Component: Designator=R9(0805_R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "供应商链接"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.szlcsc.com/product/details_26856.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "LC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SuppliersPartNumber"; Value = "C26113"; VariantName = "[No Variations]"
+Added Component: Designator=R10(0805_R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "供应商链接"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.szlcsc.com/product/details_26856.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "LC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SuppliersPartNumber"; Value = "C26113"; VariantName = "[No Variations]"
+Added Component: Designator=R11(0805_R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "供应商链接"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.szlcsc.com/product/details_26856.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "LC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SuppliersPartNumber"; Value = "C26113"; VariantName = "[No Variations]"
+Added Component: Designator=R12(0805_R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "供应商链接"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.szlcsc.com/product/details_26856.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "LC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SuppliersPartNumber"; Value = "C26113"; VariantName = "[No Variations]"
+Added Component: Designator=R13(0805_R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "供应商链接"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.szlcsc.com/product/details_26856.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "LC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SuppliersPartNumber"; Value = "C26113"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C17-1
+Added Pin To Net: NetName=NetC17_2 Pin=C17-2
+Added Pin To Net: NetName=GND Pin=C18-1
+Added Pin To Net: NetName=NetC18_2 Pin=C18-2
+Added Pin To Net: NetName=GND Pin=C19-1
+Added Pin To Net: NetName=NetC19_2 Pin=C19-2
+Added Pin To Net: NetName=GND Pin=C20-1
+Added Pin To Net: NetName=USIM_VDD Pin=C20-2
+Added Pin To Net: NetName=GND Pin=C21-1
+Added Pin To Net: NetName=VDD_EXT Pin=C21-2
+Added Pin To Net: NetName=GND Pin=C32-1
+Added Pin To Net: NetName=NetANT1_1 Pin=C32-2
+Added Pin To Net: NetName=GND Pin=C33-1
+Added Pin To Net: NetName=RF_ANT Pin=C33-2
+Added Pin To Net: NetName=NetC18_2 Pin=R7-1
+Added Pin To Net: NetName=USIM_CLK Pin=R7-2
+Added Pin To Net: NetName=NetC17_2 Pin=R8-1
+Added Pin To Net: NetName=USIM_DATA Pin=R8-2
+Added Pin To Net: NetName=NetANT1_1 Pin=R9-1
+Added Pin To Net: NetName=RF_ANT Pin=R9-2
+Added Pin To Net: NetName=VDD_EXT Pin=R10-1
+Added Pin To Net: NetName=TXD Pin=R10-2
+Added Pin To Net: NetName=NetMCU1_25 Pin=R11-1
+Added Pin To Net: NetName=TXD Pin=R11-2
+Added Pin To Net: NetName=NetLED2_2 Pin=R12-1
+Added Pin To Net: NetName=NetR12_2 Pin=R12-2
+Added Pin To Net: NetName=NetC19_2 Pin=R13-1
+Added Pin To Net: NetName=USIM_RST Pin=R13-2
+Added Member To Class: ClassName=U_BC35_module Member=Component C17 33p
+Added Member To Class: ClassName=U_BC35_module Member=Component C18 33p
+Added Member To Class: ClassName=U_BC35_module Member=Component C19 33p
+Added Member To Class: ClassName=U_BC35_module Member=Component C20 0.1u
+Added Member To Class: ClassName=U_BC35_module Member=Component C21 2.2uF
+Added Member To Class: ClassName=U_BC35_module Member=Component C32 NC
+Added Member To Class: ClassName=U_BC35_module Member=Component C33 NC
+Added Member To Class: ClassName=U_BC35_module Member=Component R7 22
+Added Member To Class: ClassName=U_BC35_module Member=Component R8 22
+Added Member To Class: ClassName=U_BC35_module Member=Component R9 0R
+Added Member To Class: ClassName=U_BC35_module Member=Component R10 20k
+Added Member To Class: ClassName=U_BC35_module Member=Component R11 1k
+Added Member To Class: ClassName=U_BC35_module Member=Component R12 2.2k
+Added Member To Class: ClassName=U_BC35_module Member=Component R13 22

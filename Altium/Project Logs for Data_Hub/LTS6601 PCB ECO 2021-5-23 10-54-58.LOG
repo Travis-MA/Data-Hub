@@ -1,0 +1,3 @@
+Change Component Designator: OldDesignator=UART1 NewDesignator=P_test2
+Change Component Designator: OldDesignator=UART_DBG NewDesignator=P_test3
+Added Member To Class: ClassName=U_MultiChannel_ADC Member=Component R161 500

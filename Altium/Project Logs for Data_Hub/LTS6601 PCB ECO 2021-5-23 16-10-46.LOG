@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=USIM_VDD Pin=TVS1-4
+Removed Pin From Net: NetName=NetC19_2 Pin=TVS1-6
+Added Pin To Net: NetName=USIM_VDD Pin=TVS1-5
+Added Pin To Net: NetName=NetC18_2 Pin=TVS1-6
